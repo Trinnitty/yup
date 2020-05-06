@@ -15,8 +15,8 @@ export default function NumberSchema() {
       let parsed = value;
 
       if (typeof parsed === 'string') {
-        parsed = parsed.replace(/\s/g, '');
-        if (parsed === '') return NaN;
+        parsed = parsed.trim();
+        if (parsed === '' || isNaN(parsed)) return NaN;
         // don't use parseFloat to avoid positives on alpha-numeric strings
         parsed = +parsed;
       }
